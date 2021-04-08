@@ -19,6 +19,7 @@ body{
     background-color: #0a1f40;
     color: white;
     margin: 5;
+    width: 65vw;
 }
 
 .header{
@@ -117,14 +118,6 @@ body{
     left: 50%;
 }
 
-#signup-modal-title {
-
-}
-
-#signup-modal-description {
-
-}
-
 .wunderpuss{
     height: 20rem;
     width: 25rem;
@@ -137,11 +130,8 @@ body{
     background-color: white;
     border-color: navy;
     border-radius:5em;
-    /* padding: 5px 7px;
-    height:22px; */
     width: 80px;
     color:navy;
-    /* margin-top:8px; */
     height: 2em;
     margin-left: 5px;
 }
@@ -211,9 +201,7 @@ margin-left:600px; */
     display:flex;
     flex: 1;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin-top:5em; 
+    margin-top:1em; 
 }
 
 #searchvalues {
@@ -225,24 +213,9 @@ margin-left:600px; */
     display:flex;
     justify-content: center;
     align-content: center;
-    margin-top:1em;
     font-size:40px;
-    
+    color: rgba(16, 16, 63, 0.913);
 }
-// .searchresults {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-start;
-//     margin-left: 15em;
-//     margin-right: 15em;
-//     /* display:flex;
-//     justify-content: center;
-//     align-content: center; */
-//     margin-top:2em;
-//     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-//     flex-direction: column;
-
-// }
 
 .dataInformation {
     display: flex;

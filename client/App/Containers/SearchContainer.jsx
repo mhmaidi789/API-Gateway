@@ -74,8 +74,7 @@ class SearchContainer extends React.Component{
         <div style = {{display: 'flex', flex: 2, flexDirection: 'column'}}>
               <strong style = {{alignSelf: 'center'}}>API Returned Object: </strong> 
               <pre className ='codeSnippet'>
-                <code style = {{display: 'inline-block', width: 100, wordWrap: 'break-word', wordBreak: 'break-all'}}>
-                  <br />
+                <code>
                   {JSON.stringify(this.state.codeSnippetObj, null, 2)}
                 </code>
               </pre>

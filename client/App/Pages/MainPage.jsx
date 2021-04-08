@@ -11,7 +11,7 @@ class MainPage extends React.Component{
   
   render(){
       return(
-        <div className='mainpage'>
+        <div>
             <div className='header'>
                 <RibbonContainer loginFail={this.props.loginFail}/>
             </div>
