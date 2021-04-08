@@ -1,4 +1,5 @@
 const request = require('supertest');
+console.log('hi')
 
 const server = 'http://localhost:3000';
 // const db = require('../server/db/markets.js');

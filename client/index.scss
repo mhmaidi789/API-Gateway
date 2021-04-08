@@ -4,11 +4,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-
-}
-
-
 .codeSnippet {
     display: flex;
     flex: 1;
@@ -20,6 +15,8 @@ body{
     color: white;
     margin: 5;
     width: 65vw;
+    max-height: 65vh;
+    overflow: scroll;
 }
 
 .header{
@@ -70,7 +67,6 @@ body{
 
 .login:hover {
     background-color:pink;
-    
 }
 
 
@@ -133,7 +129,6 @@ body{
     width: 80px;
     color:navy;
     height: 2em;
-    margin-left: 5px;
 }
 
 .search:hover {
@@ -143,6 +138,8 @@ body{
 .searchBar {
     display: flex;
     justify-content: center;
+    margin-left: 10;
+
 }
 
 
@@ -217,20 +214,3 @@ margin-left:600px; */
     color: rgba(16, 16, 63, 0.913);
 }
 
-.dataInformation {
-    display: flex;
-    font-size: 12px;
-    margin: 5em;
-    flex-wrap: wrap;
-    word-break: break-all;
-    white-space: normal
-}
-
-.table {
-    display: flex;
-    border-color: navy;
-    border-style: solid;
-    border-width: 2px;
-    padding: 2em;
-
-}
