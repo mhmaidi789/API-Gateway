@@ -1,13 +1,21 @@
 import React from 'react'
 import SearchBar from '../Components/SearchBar.jsx'
 import SearchResults from '../Components/SearchResults.jsx'
+import Fade from '@material-ui/core/Grow';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 class SearchContainer extends React.Component{
   constructor(props){
     super(props)
     this.state = {
       books: [],
-      searchResults: null
+      searchResults: null,
+      codeSnippetObj : {
+        key: 'Example Object',
+        apiKey: `Google's API`
+      },
+      showSnippet: false,
+      loading: false,
     }
 
     this.performSearch = this.performSearch.bind(this)
@@ -18,6 +26,8 @@ class SearchContainer extends React.Component{
     // API fetch logic happens at backend
     // prop drill response into to search results
     performSearch(string){
+      this.setState({loading: true, showSnippet: false,
+      books: []});
 
       let tempArray = string.split(' ').filter(el => el !== '');
       let updatedString = tempArray.join('+')
@@ -49,14 +59,29 @@ class SearchContainer extends React.Component{
           }
           bookArray.push(bookInfo)
         })
+        updatedState.loading = false;
         updatedState.books = bookArray
         console.log('updated state',updatedState)
-        this.setState(updatedState)
+        this.setState({updatedState})
 
       })
 
       .catch(err => console.log(err))
       }
+
+  // Selected Button
+  selectButton() {
+
+    this.setState({showSnippet: true})
+
+
+    // fetch('/search', requestBody) 
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     this.setState({showSnippet: true})
+    //   })
+    //   .catch(err => console.log(err))
+  }
   
   render(){
     //container array 
@@ -65,20 +90,49 @@ class SearchContainer extends React.Component{
     //render container array in the return statement
     const rowsArray = [];
     for (let i = 0; i < this.state.books.length; i++){
-      rowsArray.push(<SearchResults key = {i} books={this.state.books[i]}/>)
+      rowsArray.push(<SearchResults selectButton = {() => this.selectButton()} timeout = {i+1} books={this.state.books[i]}/>)
     }
-    
+
       return(
         
         <div className='searchcontainer'>
-            <SearchBar onEnter={this.performSearch} />
-         
-            <div className='searchresults'>
-              {rowsArray}
-         </div>
+          <SearchBar onEnter={this.performSearch} />
+
+          {/* Loading Bar */}
+          {this.state.loading?(
+            <div style = {{height: 100, justifyContent: 'center', marginTop: '25%'}}>
+              <LinearProgress />
+            </div>
+
+          ):<div />}
+          
+        
+          {/* Results and codesnippet */}
+          {this.state.books.length > 0?
+            <div style = {{marginTop: '1em', display: 'flex', flexDirection: 'row'}}> 
+              {/*Results  */}
+              <div style = {{display: 'flex', flex: 1, flexDirection: 'column'}}>
+              <strong style = {{alignSelf: 'center'}} >Search Results: </strong> 
+                {rowsArray}
+            </div>
+          {/* Code Snippet */}
+            <Fade in = {this.state.showSnippet} timeout = {1000} >
+              <div style = {{display: 'flex', flex: 1, flexDirection: 'column'}}>
+                    <strong style = {{alignSelf: 'center'}}>API Returned Object: </strong> 
+                    <pre className ='codeSnippet'>
+                      <code>
+                        <br />
+                        {JSON.stringify(this.state.codeSnippetObj, null, 2)}
+                      </code>
+                    </pre>
+              </div>
+            </Fade>
+          </div>
+          :<div />
+          }
+          
         </div>
-       
-       )
+      )
   }
 }
 

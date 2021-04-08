@@ -5,8 +5,9 @@ import RibbonContainer from '../Containers/RibbonContainer.jsx';
 class MainPage extends React.Component{
   constructor(props){
     super(props)
-
-    
+    this.state = {
+      // showModal : false,
+    }
   }
   
   render(){
@@ -28,3 +29,4 @@ class MainPage extends React.Component{
 }
 
 export default MainPage
+

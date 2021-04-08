@@ -19,8 +19,8 @@ const LoginPage = (props) => {
             <button className="login" onClick={() => {props.loginFcn(), routeChange()}}>
                 <i className="fas fa-sign-in-alt" >Login</i>
             </button>
+      </div>
     </div>
-  </div>
   )
 }
 
