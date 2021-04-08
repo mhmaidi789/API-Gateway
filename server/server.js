@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -13,11 +14,11 @@ const sessionController = require('../authentication/controllers/sessionControll
 const apiController = require('../authentication/controllers/apiController');
 
 // Mongoose Database connection
-console.log('Connecting to Mongoose Database...');
-const mongoURI = 'mongodb://localhost/API-Gateway';   
+console.log('CONNECTING TO MONGO DB');
+const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`;   
 mongoose.connect(mongoURI, {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
-    console.log('Successfully Connected to Mongoose Database') 
+    console.log('CONNECTED TO MONGO DB') 
 });
 
 // express parsers
@@ -102,6 +103,9 @@ app.post('/login',
 // handle unrecognized requests with 404
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
 
+// ADD FAILED VERIFYUSER ERROR HANDLER
+// ADD USERSCHEMA PRE ERROR HANDLER
+
 /**
  * Global error handler
  */
@@ -125,5 +129,5 @@ app.use((req, res) => res.status(404).send('This is not the page you\'re looking
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`LISTENING ON PORT ${port}`)
   })

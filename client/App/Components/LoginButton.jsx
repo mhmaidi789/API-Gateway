@@ -5,7 +5,7 @@ const LoginButton = (props) => (
 
   <button className="login">
      <Link to='login'>
-      <i className="fas fa-sign-in-alt" > Login</i>
+      <i className="fas fa-sign-in-alt" >Login</i>
     </Link>
   </button>
 

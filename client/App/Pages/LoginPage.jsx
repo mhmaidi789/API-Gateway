@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router'
 import GoogleLogin from 'react-google-login'
+import ReactDOM from 'react-dom';
+import LoginGithub from 'react-login-github';
+
+// const gh_clientid = `${process.env.GH_CLIENTID}`;
 
 const LoginPage = (props) => {
   const history = useHistory();
@@ -14,6 +18,9 @@ const LoginPage = (props) => {
   const responseGoogle = (response) => {
     console.log(response);
   }
+
+  const onSuccess = response => console.log(response);
+  const onFailure = response => console.error(response);
 
   return(
     <div className='loginpage'>
@@ -32,6 +39,9 @@ const LoginPage = (props) => {
             onFailure={responseGoogle}
             cookiePolicy={'single_host_origin'}
             />
+            <LoginGithub clientId='3149f5abc472c1305402'
+            onSuccess={onSuccess}
+            onFailure={onFailure}/>
     </div>
   </div>
   )
