@@ -11,9 +11,9 @@ const SearchBar = (props) => (
 
   ></input>
   <button className="search" onClick = {() => {
-
-    props.onEnter(document.getElementById('searchvalues').value)
-  }}>Search<i className="fab fa-searchengin"></i></button>
+    props.onEnter(document.getElementById('searchvalues').value)}}
+  >
+    Search<i className="fab fa-searchengin"></i></button>
  
   </div>
 

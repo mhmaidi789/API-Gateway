@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Fade from '@material-ui/core/Grow';
 
-class SearchResults extends React.Component{
+class SearchResult extends React.Component{
     constructor(props){
         super(props)
 
@@ -23,5 +23,5 @@ class SearchResults extends React.Component{
     }
 }
 
-export default SearchResults
+export default SearchResult
 
