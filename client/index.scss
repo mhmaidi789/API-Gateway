@@ -160,6 +160,24 @@ body{
     color: navy;
 }
 
+.resultButton {
+    padding: 1em;
+    margin: 1em;
+    border-style: solid;
+    border-width: 2;
+    background-color: #0c5ea6;
+    box-shadow: 1px 1px 1px 1px;
+    border-radius: 0.5em;
+}
+
+.resultButton:hover {
+    background-color: #094274;
+}
+
+.resultButton:focus {
+    background-color: #06335bfc;
+}
+
 .usertext {
     height : 32px;
     margin-top:4px;
