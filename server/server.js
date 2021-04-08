@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const port = 3000;
-
+const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
 
@@ -22,7 +22,13 @@ mongoose.connection.once('open', () => {
 
 // express parsers
 app.use(express.json())
+app.use(bodyParser.json());
 app.use(cookieParser())
+app.use(                //this mean we don't need to use body-parser anymore
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 // Serve static file build route 
 app.use('/build', express.static(path.join(__dirname, '../build')));
