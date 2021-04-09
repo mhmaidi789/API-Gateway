@@ -57,7 +57,7 @@ class SearchContainer extends React.Component{
     // Create search result component for each book found. 
     const rowsArray = [];
     for (let i = 0; i < this.state.books.length; i++){
-      rowsArray.push(<SearchResult key = {i} selectButton = {(e) => this.selectButton(e)} timeout = {i+1} books={this.state.books[i].formattedData}/>)
+      rowsArray.push(<SearchResult key = {i} selectButton = {(e) => this.selectButton(e)} timeout = {i+1} book={this.state.books[i].formattedData}/>)
     }
 
     return(
